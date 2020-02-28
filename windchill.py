@@ -1,11 +1,6 @@
 # scientific kit
 import argparse
 
-parser = argparse.ArgumentParser()
-parser.add_argument('-d', '--degrees', action='store')
-parser.add_argument('-w', '--windchill', action='store')
-args = parser.parse_args()
-
 def wind_chill(degreesF: int, windVelocityMph: int) -> float:
     """Caluclate windchill factor.
     Currently supports Farenheit.
@@ -35,5 +30,10 @@ def wind_chill(degreesF: int, windVelocityMph: int) -> float:
     return 35.74 + (0.6215 * degreesF) - (35.75 * (windVelocityMph ** 0.16)) + 0.4275 * degreesF * (windVelocityMph ** 0.16)
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-d', '--degrees', action='store')
+    parser.add_argument('-w', '--windchill', action='store')
+    args = parser.parse_args()
+
     result = wind_chill(int(args.degrees), int(args.windchill))
-print(result)
+    print(result)
