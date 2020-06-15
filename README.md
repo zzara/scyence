@@ -1,2 +1,2 @@
-# scyence
+# Scyence
 Scientific and mathmatic functions
